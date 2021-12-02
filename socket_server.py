@@ -5,8 +5,13 @@ serverSocket = socket.socket()
 print("Socket created successfully")
 #reserve a port 
 port =12345
-#bind socket to IP address & port number
-serverSocket.bind(('localhost', port))
+select=int(input(" 1:connect to Local Host, 2 connect tp anotehr custom Ip"))
+if select==1:
+    serverSocket.bind(('localhost', port))
+    
+if select==2:
+    IP=input("enter Ip:")
+    serverSocket.bind((IP, port))
 # change status to listening to wait for client connection
 # 5 --> number of clients that can connect to server
 serverSocket.listen(5)
